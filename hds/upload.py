@@ -18,12 +18,19 @@ def client():
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
+def _norm(t):
+    import re, unicodedata
+    t = unicodedata.normalize("NFC", t).lower()
+    return re.sub(r"[^\w\s]", "", t).split() and " ".join(re.sub(r"[^\w\s]", "", t).split())
+
+
 def find_playlist(yt, name):
+    """Troba la llista encara que el títol a YouTube porti cometes o emojis."""
     req = yt.playlists().list(part="snippet", mine=True, maxResults=50)
     while req:
         res = req.execute()
         for p in res.get("items", []):
-            if p["snippet"]["title"].strip().lower() == name.strip().lower():
+            if _norm(name) in _norm(p["snippet"]["title"]):
                 return p["id"]
         req = yt.playlists().list_next(req, res)
     return None

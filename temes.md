@@ -10,7 +10,7 @@ Regla: no repetir cap tema publicat, programat ni privat. Abans de triar, llista
 - Sept jours dans le Paris médiéval
 - Pourquoi vous ne survivriez pas un hiver au Moyen Âge (1407-1408) — programat 16/11
 - Une semaine dans un monastère médiéval (abadia cistercenca) — programat 17/11
-- Pourquoi vous ne survivriez pas à un voyage au Moyen Âge (pelegrinatge, 1320) — vídeo de prova fet el 16/11, NO pujat. A Studio no hi ha cap vídeo de viatge (captura de l'Àlex, 16/11 14:42); APROVAT per l'Àlex per al 18/11 a les 19:00.
+- Pourquoi vous ne survivriez pas à un voyage au Moyen Âge (pelegrinatge, 1320) — programat 18/11 (youtu.be/B-garHTccy4)
 
 ## Pendents (en ordre)
 1. Pourquoi vous ne survivriez pas une semaine dans la Rome antique
