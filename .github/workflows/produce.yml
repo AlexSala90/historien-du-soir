@@ -1,0 +1,49 @@
+name: Produir i publicar
+on:
+  push:
+    paths: ["episodes/**/episode.json"]
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: "Carpeta de l'episodi (p. ex. episodes/2026-11-18-voyage)"
+        required: true
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - name: Episodi a produir
+        id: ep
+        run: |
+          if [ -n "${{ github.event.inputs.episode }}" ]; then d="${{ github.event.inputs.episode }}";
+          else d=$(git diff --name-only HEAD~1 HEAD -- 'episodes/**/episode.json' | head -1 | xargs dirname); fi
+          echo "dir=$d" >> "$GITHUB_OUTPUT"; echo "Episodi: $d"
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install -r requirements.txt
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: hf-models-v1 }
+      - name: Veu i imatges
+        run: python3 run.py produce ${{ steps.ep.outputs.dir }}/episode.json work
+      - name: Muntatge, miniatura i fitxa
+        run: python3 run.py finish ${{ steps.ep.outputs.dir }}/episode.json work
+      - name: Publicar a YouTube
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python3 run.py publish work
+      - name: Guardar el control (làmina, miniatura, fitxa)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: control
+          path: |
+            work/contact_sheet.jpg
+            work/thumbnail.jpg
+            work/fitxa.txt
+            work/published.json
+            work/sample_*.jpg
