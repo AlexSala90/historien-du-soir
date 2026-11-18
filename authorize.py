@@ -7,7 +7,8 @@ import sys
 
 from google_auth_oauthlib.flow import Flow
 
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"]
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube",
+          "https://www.googleapis.com/auth/youtube.force-ssl"]  # force-ssl: pujar subtítols
 REDIRECT = "http://127.0.0.1:8765/"
 
 

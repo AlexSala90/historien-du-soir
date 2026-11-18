@@ -57,3 +57,5 @@ jobs:
             work/fitxa.txt
             work/published.json
             work/sample_*.jpg
+            work/subs_*.srt
+            work/localizations.json

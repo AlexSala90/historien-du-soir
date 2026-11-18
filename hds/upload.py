@@ -11,10 +11,10 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload",
           "https://www.googleapis.com/auth/youtube"]
 
 
-def client():
+def client(scopes=SCOPES):
     creds = Credentials(None, refresh_token=os.environ["YT_REFRESH_TOKEN"],
                         client_id=os.environ["YT_CLIENT_ID"], client_secret=os.environ["YT_CLIENT_SECRET"],
-                        token_uri="https://oauth2.googleapis.com/token", scopes=SCOPES)
+                        token_uri="https://oauth2.googleapis.com/token", scopes=scopes)
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
@@ -72,7 +72,40 @@ def publish(work):
         else:
             print(f"  Avís: no trobo la llista «{f['playlist']}»")
     (work / "published.json").write_text(json.dumps({"videoId": vid, **f}, ensure_ascii=False, indent=2))
+    add_languages(work, vid)
     return vid
+
+
+def add_languages(work, vid):
+    """Títol i descripció en castellà i anglès + subtítols fr/es/en. Mai fa fallar la publicació."""
+    from googleapiclient.errors import HttpError
+    loc_path = work / "localizations.json"
+    if loc_path.exists():
+        try:
+            client().videos().update(part="localizations", body={
+                "id": vid, "localizations": json.loads(loc_path.read_text())}).execute()
+            print("  Títol i descripció en castellà i anglès afegits")
+        except HttpError as e:
+            print(f"  Avís: no s'han pogut afegir les traduccions del títol ({e})")
+    # Els subtítols demanen el permís youtube.force-ssl. Sense «scopes» el testimoni porta tots
+    # els permisos concedits; si encara no hi és, cal tornar a passar per authorize.py.
+    yt = client(scopes=None)
+    names = {"fr": "Français", "es": "Español", "en": "English"}
+    for lang, name in names.items():
+        srt = work / f"subs_{lang}.srt"
+        if not srt.exists():
+            continue
+        try:
+            yt.captions().insert(part="snippet", body={"snippet": {
+                "videoId": vid, "language": lang, "name": name, "isDraft": False}},
+                media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream")).execute()
+            print(f"  Subtítols {lang} pujats")
+        except HttpError as e:
+            if e.resp.status in (401, 403):
+                print("  Avís: el permís de YouTube no inclou els subtítols. Cal tornar a autoritzar amb "
+                      "authorize.py i actualitzar YT_REFRESH_TOKEN. Els .srt queden als artefactes «control».")
+                return
+            print(f"  Avís: subtítols {lang} no pujats ({e})")
 
 
 if __name__ == "__main__":
