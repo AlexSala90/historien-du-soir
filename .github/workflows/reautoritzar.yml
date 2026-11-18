@@ -1,0 +1,47 @@
+name: Reautoritzar YouTube
+# Renova YT_REFRESH_TOKEN sense que el testimoni aparegui mai en clar (el repo és públic).
+# 1) Sense «code»: escriu l'enllaç d'autorització (en base64, perquè GitHub amaga el client_id als registres).
+# 2) Amb «code» (l'URL de 127.0.0.1 on torna Google) i «pubkey» (clau pública RSA en base64):
+#    canvia el codi pel testimoni i l'escriu XIFRAT amb la clau pública. Només qui té la clau privada el pot llegir.
+on:
+  workflow_dispatch:
+    inputs:
+      code: { description: "URL de retorn de Google (127.0.0.1…)", required: false }
+      pubkey: { description: "Clau pública RSA (PEM en base64)", required: false }
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enllaç o testimoni
+        env:
+          CID: ${{ secrets.YT_CLIENT_ID }}
+          CSECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          CODE: ${{ github.event.inputs.code }}
+          PUBKEY: ${{ github.event.inputs.pubkey }}
+        run: |
+          python3 - <<'PY'
+          import base64, json, os, subprocess, urllib.parse, urllib.request
+          redirect = "http://127.0.0.1:8765/"
+          scopes = " ".join("https://www.googleapis.com/auth/" + s for s in ("youtube.upload", "youtube", "youtube.force-ssl"))
+          code = os.environ.get("CODE", "").strip()
+          if not code:
+              url = "https://accounts.google.com/o/oauth2/auth?" + urllib.parse.urlencode({
+                  "client_id": os.environ["CID"], "redirect_uri": redirect, "response_type": "code",
+                  "scope": scopes, "access_type": "offline", "prompt": "consent", "include_granted_scopes": "true"})
+              print("AUTH_URL_B64=" + base64.b64encode(url.encode()).decode())
+              raise SystemExit
+          if code.startswith("http"):
+              code = urllib.parse.parse_qs(urllib.parse.urlparse(code).query)["code"][0]
+          data = urllib.parse.urlencode({"code": code, "client_id": os.environ["CID"],
+                  "client_secret": os.environ["CSECRET"], "redirect_uri": redirect,
+                  "grant_type": "authorization_code"}).encode()
+          tok = json.load(urllib.request.urlopen("https://oauth2.googleapis.com/token", data))
+          print("Permisos concedits:", tok.get("scope"))
+          rt = tok["refresh_token"]
+          print(f"::add-mask::{rt}")
+          open("pub.pem", "wb").write(base64.b64decode(os.environ["PUBKEY"]))
+          enc = subprocess.run(["openssl", "pkeyutl", "-encrypt", "-pubin", "-inkey", "pub.pem",
+                                "-pkeyopt", "rsa_padding_mode:oaep", "-pkeyopt", "rsa_oaep_md:sha256"],
+                               input=rt.encode(), capture_output=True, check=True).stdout
+          print("ENCRYPTED_B64=" + base64.b64encode(enc).decode())
+          PY
