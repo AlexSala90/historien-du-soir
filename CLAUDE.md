@@ -33,7 +33,7 @@ Vegeu `episodes/2026-11-18-voyage/episode.json` com a exemple (ja té el títol 
 }
 ```
 - `text`: 2–3 paraules en majúscules (francès). `alt_text`: una alternativa amb una idea diferent (per a la variant C).
-- `face`: en anglès, UNA persona de l'època amb una expressió clara (fred, cansament, calma, por continguda); sense mans, objectes moderns ni text. El codi ja afegeix «primer pla, llum d'espelma, mirant a càmera».
+- `face`: en anglès, UNA persona de l'època amb una expressió clara però tranquil·la (fred, cansament, calma); descriu edat, barba, barret o caputxa. Evita «eyes closed/half closed», «wide eyes» o «staring»: amb SD-Turbo fan ulls estranys i la miniatura fa por (no és contingut de terror). Sense mans, objectes moderns ni text. El codi ja afegeix «primer pla, llum d'espelma, mirada suau a càmera».
 - `background`: en anglès, escena exterior o de nit de l'episodi, sense gent (el codi la torna blava i freda).
 - `label`: buit, o « PARTIE 2 » si toca.
 El workflow genera 8 cares, tria la més neta (detector de cares YuNet: una sola cara, ulls i nas ben posats, nítida) i deixa `thumbnail.jpg` (la que es puja), `thumbnail_b.jpg` (2a cara), `thumbnail_c.jpg` (text alternatiu) i `thumbnail_faces.jpg` als artefactes «control». YouTube «Tester et comparer» no es pot fer per API: si es vol, es pugen a mà les variants a YouTube Studio.
