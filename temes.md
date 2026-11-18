@@ -13,18 +13,18 @@ Regla: no repetir cap tema publicat, programat ni privat. Abans de triar, llista
 - Pourquoi vous ne survivriez pas à un voyage au Moyen Âge (pelegrinatge, 1320) — programat 18/11 (youtu.be/B-garHTccy4)
 - Pourquoi vous ne survivriez pas une semaine dans la Rome antique (Trajan, any 110) — programat 19/11
 - Comment se soignait-on vraiment au Moyen Âge ? (Beaune, 1452, Hôtel-Dieu) — programat 20/11
+- Pourquoi vous ne survivriez pas une nuit dans une auberge médiévale (vora el Loira, 1396) — programat 21/11
 
 ## Pendents (en ordre)
-1. Une nuit dans une auberge médiévale
-2. Pourquoi vous ne survivriez pas une journée dans une ville médiévale (higiene, aigua, soroll; sense París)
-3. Comment mangeait-on vraiment au Moyen Âge ? Du marché à la table
-4. La vie d'un enfant au Moyen Âge
-5. Pourquoi vous ne survivriez pas une journée en Égypte ancienne
-6. Comment vivait-on dans un village gaulois ?
-7. La vie à bord d'un navire au temps des Vikings
-8. Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge (feines de cada estació)
-9. Un jour dans la vie d'un chevalier (lluny dels mites)
-10. Comment s'éclairait-on la nuit avant l'électricité ?
-11. La vie d'un apprenti dans une guilde médiévale
-12. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
-13. Les marchés et les foires de Champagne
+1. Pourquoi vous ne survivriez pas une journée dans une ville médiévale (higiene, aigua, soroll; sense París)
+2. Comment mangeait-on vraiment au Moyen Âge ? Du marché à la table
+3. La vie d'un enfant au Moyen Âge
+4. Pourquoi vous ne survivriez pas une journée en Égypte ancienne
+5. Comment vivait-on dans un village gaulois ?
+6. La vie à bord d'un navire au temps des Vikings
+7. Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge (feines de cada estació)
+8. Un jour dans la vie d'un chevalier (lluny dels mites)
+9. Comment s'éclairait-on la nuit avant l'électricité ?
+10. La vie d'un apprenti dans une guilde médiévale
+11. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
+12. Les marchés et les foires de Champagne
