@@ -11,7 +11,7 @@ Canal: @historiendusoir (UCtG_OgI_1Csq0z7J2Cxnjxg), 5 vídeos.
 | Pourquoi vous ne survivriez pas une journée au Moyen Âge \| Histoire pour dormir \| Partie 1 🕯️📖 | 1:07:11 | 69 |
 
 Detalls a copiar que no surten al document de procediment:
-- El títol acaba amb **2 emojis** temàtics després de « | Histoire pour dormir ».
+- ~~El títol acaba amb 2 emojis~~ → des del 18/11: ganxo al davant, sense punt final, 1 sol emoji (vegeu CLAUDE.md).
 - La descripció comença amb « Installez-vous confortablement. Ce soir, nous… » (època, lloc, pregunta) i porta 3 hashtags: #histoirepourdormir #moyenage + un de temàtic.
-- Miniatura: escena pintada a l'esquerra, text en majúscules serif a la dreta (crema + última línia daurada, més petita).
+- ~~Miniatura: escena a l'esquerra, 3 línies de text~~ → des del 18/11: cara amb espelma, 2–3 paraules (vegeu CLAUDE.md). CTR amb l'estil antic: 1,2 %.
 - YouTube mostra l'etiqueta « IA » (contingut sintètic marcat).
