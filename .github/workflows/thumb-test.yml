@@ -3,6 +3,8 @@ on:
   push:
     branches: ["claude/**"]
     paths: ["hds/thumbnail.py", "tests/thumb_samples.json", ".github/workflows/thumb-test.yml"]
+permissions:
+  contents: write
 jobs:
   thumbs:
     runs-on: ubuntu-latest
@@ -25,5 +27,8 @@ jobs:
               w = Path("out") / s["name"]; w.mkdir(parents=True, exist_ok=True)
               thumbnail.make(s, w)
           PY
-      - uses: actions/upload-artifact@v4
-        with: { name: miniatures, path: out }
+      - name: Desar les proves a la branca
+        run: |
+          rm -rf proves-miniatura && mkdir proves-miniatura && cp -r out/* proves-miniatura/
+          git config user.name "github-actions" && git config user.email "github-actions@users.noreply.github.com"
+          git add proves-miniatura && git commit -m "Proves de miniatura [skip ci]" && git pull --rebase && git push
