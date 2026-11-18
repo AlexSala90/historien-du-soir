@@ -23,3 +23,22 @@ Vegeu `episodes/2026-11-18-voyage/episode.json` com a exemple.
 
 ## Secrets de GitHub necessaris
 `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (es generen amb `authorize.py`).
+
+## Castellà i anglès (des del 18/11)
+Cada vídeo es puja amb el títol i la descripció també en castellà i anglès (localitzacions de YouTube) i amb subtítols en francès, castellà i anglès, sincronitzats amb la veu. L'àudio continua sent només en francès (el canal encara no té pistes d'àudio en altres idiomes).
+- Afegeix a `episode.json` el bloc `localizations` (el títol i la descripció pesen per a la cerca; la traducció automàtica del workflow és només la reserva):
+```json
+"localizations": {
+  "es": {"title": "Una noche en una posada en 1396: no sobrevivirías | Historia para dormir 🍷",
+         "description_intro": "Ponte cómodo. Esta noche llegamos…",
+         "section_titles": ["Introducción: el camino al anochecer", "… 10 en total"]},
+  "en": {"title": "A Night at a Medieval Inn in 1396: You Wouldn't Survive | History for Sleep 🍷",
+         "description_intro": "Get comfortable. Tonight, we arrive…",
+         "section_titles": ["Introduction: the road at dusk", "… 10 en total"]}
+}
+```
+- Títols: mateixes regles que en francès (ganxo al davant, ≤ 100 caràcters, 1 emoji), acabats en « | Historia para dormir » i « | History for Sleep ». Escriu-los com un natiu, no calcats («tú» en castellà, «you» en anglès).
+- `description_intro`: comença « Ponte cómodo. Esta noche… » / « Get comfortable. Tonight, we… ». El codi hi afegeix capítols, tancament i hashtags.
+- `section_titles`: exactament 10, en el mateix ordre.
+- Els subtítols es tradueixen sols al workflow (Helsinki-NLP opus-mt, fr→en i fr→en→es) a partir dels temps reals de cada frase. Queden també als artefactes «control» (`subs_*.srt`, `localizations.json`).
+- Pujar subtítols requereix el permís `youtube.force-ssl`: si el registre diu que falta, torna a executar `authorize.py` (amb el compte del canal) i actualitza `YT_REFRESH_TOKEN`. Després, `python3 run.py languages WORKDIR` els torna a pujar.
