@@ -1,9 +1,22 @@
 """Pas 8: fitxa (títol, descripció amb capítols, etiquetes, paràmetres de publicació)."""
-import json, sys
+import json, re, sys
 from pathlib import Path
 
 CLOSING_CTA = ("Si ce voyage vous a aidé à trouver le repos, abonnez-vous pour nous retrouver "
                "d'autres nuits, en d'autres siècles. Dormez bien. 🌙")
+
+
+EMOJI = re.compile("(?:[\U0001F1E6-\U0001F1FF]{2}|[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\u2300-\u23FF]"
+                   "(?:[\uFE0F\U0001F3FB-\U0001F3FF]|\u200D[\U0001F000-\U0001FAFF\u2600-\u27BF]\uFE0F?)*)")
+
+
+def clean_title(title):
+    """Regles de títol: sense punt final abans de « | », com a màxim UN emoji (el primer)."""
+    emojis = EMOJI.findall(title)
+    t = EMOJI.sub("", title)
+    t = re.sub(r"\s*\.+\s*\|", " |", t)          # «… pas. | Histoire» → «… pas | Histoire»
+    t = re.sub(r"\s{2,}", " ", t).strip().rstrip(".").strip()
+    return f"{t} {emojis[0]}" if emojis else t
 
 
 def ts(sec):
@@ -18,7 +31,9 @@ def make(ep, work):
     for sec, d in zip(ep["sections"], durations):
         chapters.append(f"{ts(t)} {sec['title']}")
         t += d
-    title = ep["title"]
+    title = clean_title(ep["title"])
+    if title != ep["title"]:
+        print(f"  Títol ajustat a les regles: {title}")
     assert "| Histoire pour dormir" in title, "El títol ha de contenir « | Histoire pour dormir »"
     assert len(title) <= 100, "Títol massa llarg per a YouTube (màx. 100)"
     desc = "\n".join([
