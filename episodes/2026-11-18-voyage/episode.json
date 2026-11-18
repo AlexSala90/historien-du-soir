@@ -1,5 +1,5 @@
 {
- "title": "Pourquoi vous ne survivriez pas à un voyage au Moyen Âge | Histoire pour dormir 🕯️🗺️",
+ "title": "À pied jusqu'à Compostelle en 1320 : vous n'y survivriez pas | Histoire pour dormir 🗺️",
  "publish_at": "2026-11-18T18:00:00Z",
  "description_intro": "Installez-vous confortablement. Ce soir, nous partons de Vézelay au printemps de l'an 1320, un bourdon à la main, sur la longue route de Saint-Jacques-de-Compostelle. Boue, puces, eau des puits, monnaies inconnues… Pourquoi, vous, ne survivriez-vous probablement pas à ce voyage ?",
  "hashtags": [
@@ -22,12 +22,11 @@
  ],
  "playlist": "Le Moyen Âge pour dormir",
  "thumbnail": {
-  "lines": [
-   "VOUS N'Y",
-   "SURVIVRIEZ PAS"
-  ],
-  "gold": "UN VOYAGE EN 1320",
-  "prompt": "medieval pilgrim with wide hat, cloak and tall staff walking on a muddy road at dusk, moody"
+  "text": "1 500 KM À PIED",
+  "alt_text": "BOUE ET PUCES",
+  "face": "weary medieval pilgrim with a wide brimmed hat and a scallop shell badge, dirty tired face, rain-soaked",
+  "background": "muddy medieval road through a dark forest at night, rain",
+  "label": ""
  },
  "sections": [
   {

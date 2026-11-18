@@ -20,30 +20,40 @@ jobs:
           if [ -n "${{ github.event.inputs.episode }}" ]; then d="${{ github.event.inputs.episode }}";
           else d=$(git diff --name-only HEAD~1 HEAD -- 'episodes/**/episode.json' | head -1 | xargs dirname); fi
           echo "dir=$d" >> "$GITHUB_OUTPUT"; echo "Episodi: $d"
+          # Un episodi ja publicat (té published.json al repo) no es torna a pujar si només se n'edita el JSON
+          if [ -z "${{ github.event.inputs.episode }}" ] && [ -f "$d/published.json" ]; then
+            echo "skip=1" >> "$GITHUB_OUTPUT"; echo "Ja publicat: no faig res"; fi
       - uses: actions/setup-python@v5
+        if: steps.ep.outputs.skip != '1'
         with: { python-version: "3.12", cache: pip }
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+        if: steps.ep.outputs.skip != '1'
       - run: pip install -r requirements.txt
+        if: steps.ep.outputs.skip != '1'
       - uses: actions/cache@v4
+        if: steps.ep.outputs.skip != '1'
         with: { path: ~/.cache/huggingface, key: hf-models-v1 }
       - name: Veu i imatges
+        if: steps.ep.outputs.skip != '1'
         run: python3 run.py produce ${{ steps.ep.outputs.dir }}/episode.json work
       - name: Muntatge, miniatura i fitxa
+        if: steps.ep.outputs.skip != '1'
         run: python3 run.py finish ${{ steps.ep.outputs.dir }}/episode.json work
       - name: Publicar a YouTube
+        if: steps.ep.outputs.skip != '1'
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: python3 run.py publish work
       - name: Guardar el control (làmina, miniatura, fitxa)
-        if: always()
+        if: always() && steps.ep.outputs.skip != '1'
         uses: actions/upload-artifact@v4
         with:
           name: control
           path: |
             work/contact_sheet.jpg
-            work/thumbnail.jpg
+            work/thumbnail*.jpg
             work/fitxa.txt
             work/published.json
             work/sample_*.jpg
