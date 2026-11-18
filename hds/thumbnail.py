@@ -3,7 +3,7 @@
 Regles (CLAUDE.md):
 - Una cara en primer pla il·luminada per una espelma (càlid) contra un fons fred (blau de nit/neu).
 - Text de 2–3 paraules, molt gran, que COMPLETA el títol (no el repeteix).
-- Marca fixa: una espelma petita a dalt a l'esquerra. Etiqueta opcional («PARTIE 2»).
+- Marca fixa: una espelma petita a baix a l'esquerra. Etiqueta opcional («PARTIE 2»).
 - Cantonada de baix a la dreta buida (hi va la durada del vídeo).
 
 Es generen diverses cares candidates i es tria automàticament la més neta
@@ -22,10 +22,10 @@ CREAM, GOLD, INK = (246, 236, 212), (236, 184, 72), (12, 10, 14)
 W, H = 1280, 720
 N_FACES = 8
 
-FACE_STYLE = ("oil painting, painterly, extreme close-up portrait, head and shoulders, "
-              "face lit only by a single candle flame, warm orange candlelight on the skin, "
-              "deep dark background, looking at the viewer, clear expression, detailed eyes, "
-              "sharp focus, ")
+FACE_STYLE = ("oil painting, painterly, close-up portrait, whole head and shoulders visible, "
+              "space above the head, face lit only by a single candle flame, warm orange candlelight "
+              "on the skin, deep dark background, soft gaze towards the viewer, calm gentle expression, "
+              "detailed eyes, sharp focus, ")
 BG_STYLE = ("oil painting, painterly, night scene, cold blue moonlight, deep blue and teal tones, "
             "snow, mist, no people, ")
 
@@ -128,14 +128,14 @@ def label_badge(img, text):
 def compose(face, bg, text, label=""):
     """face: imatge quadrada (cara càlida). bg: escena (es torna freda)."""
     canvas = cold_bg(bg.convert("RGB").resize((W, H), Image.LANCZOS)).convert("RGBA")
-    fs = 760
+    fs = 740
     fimg = warm_face(face.convert("RGB").resize((fs, fs), Image.LANCZOS)).convert("RGBA")
     # màscara: fosa cap a la dreta i cap avall, perquè la cara surti del fons fred
     xs = np.linspace(0, 1, fs)[None, :]
     ys = np.linspace(0, 1, fs)[:, None]
     m = np.clip((0.95 - xs) / 0.32, 0, 1) * np.clip((1.02 - ys) / 0.25, 0, 1)
     fimg.putalpha(Image.fromarray((m * 255).astype(np.uint8)))
-    canvas.alpha_composite(fimg, (-40, -20))
+    canvas.alpha_composite(fimg, (-30, -10))
 
     d = ImageDraw.Draw(canvas)
     lines = split_lines(text)
@@ -160,7 +160,7 @@ def compose(face, bg, text, label=""):
     for x, y, t, col in pos:
         d.text((x, y), t, font=f, fill=col, stroke_width=sw, stroke_fill=INK)
 
-    candle_mark(canvas, s=1.25)
+    candle_mark(canvas, x=40, y=H - 130, s=1.25)  # baix a l'esquerra: lliure a YouTube
     if label:
         label_badge(canvas, label)
     return canvas.convert("RGB")
