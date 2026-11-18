@@ -1,0 +1,5 @@
+[
+ {"name": "hiver", "thumbnail": {"text": "−20 °C AU LIT", "alt_text": "SANS FEU ?", "face": "exhausted medieval peasant man with a frost-covered beard, wrapped in a wool blanket, shivering", "background": "medieval village of thatched cottages buried in snow at night"}},
+ {"name": "monastere", "thumbnail": {"text": "AUCUN BRUIT", "alt_text": "4 H DU MATIN", "face": "calm young medieval monk with a tonsure and brown hood, eyes half closed", "background": "romanesque abbey cloister at night under the moon, frost on the stones"}},
+ {"name": "voyage", "thumbnail": {"text": "1320", "alt_text": "1 500 KM À PIED", "face": "weary medieval pilgrim with a wide brimmed hat and a scallop shell, dirty tired face", "background": "muddy medieval road through a dark forest at night, rain"}, "label": "PARTIE 2"}
+]
