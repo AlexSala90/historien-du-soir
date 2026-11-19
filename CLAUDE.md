@@ -11,9 +11,10 @@ Canal YouTube en francès d'« histoire pour dormir ». Un vídeo cada dia a les
 - 10 seccions amb títol. Intro (època, lloc, personatge, la pregunta) → 8 temàtiques → conclusió que respon i relaxa.
 - To lent i calmat, frases curtes, «vous», sense ensurts. Només fets acceptats pels historiadors; si és dubtós, dir-ho.
 - 35–45 mil caràcters (≈40–50 min). Tancament fix: « Merci d'avoir passé… avec L'Historien du Soir. Si ce voyage vous a aidé à trouver le repos, abonnez-vous pour nous retrouver d'autres nuits, en d'autres siècles. Dormez bien. »
-- Títol (actualitzat 18/11, objectiu CTR ≥ 4 %): **el ganxo va al davant** (lloc/època/situació concreta i després la promesa), perquè al mòbil només es veuen els primers ~45 caràcters. **Sense punt final** i **com a màxim 1 emoji**, al final. Acaba en « | Histoire pour dormir » + 1 emoji temàtic. Exemples:
-  « Un hiver au Moyen Âge : vous n'y survivriez pas | Histoire pour dormir 🕯️ »
-  « Une nuit à l'auberge en 1396 : vous n'y survivriez pas | Histoire pour dormir 🍷 »
+- Títol (actualitzat 19/11, decisió de l'Àlex: **títols curts**): un ganxo de **3 a 6 paraules** (idealment ≤ 35 caràcters abans de la barra) + « | Histoire pour dormir » + **1 emoji** temàtic al final. Sense punt final. Formats preferits: « Survivre à/dans… » o el tema directe. Res de « Pourquoi vous ne survivriez pas… » ni frases llargues. Exemples:
+  « Survivre à la Rome antique | Histoire pour dormir 🏛️ »
+  « Se soigner au Moyen Âge | Histoire pour dormir 🌿 »
+  « Survivre dans une ville médiévale | Histoire pour dormir 🔔 »
   (El codi treu sol els emojis de més i el punt final, però escriu-lo ja bé.)
 - Descripció: comença « Installez-vous confortablement. Ce soir, nous… ». 3 hashtags (#histoirepourdormir #moyenage + temàtic).
 - 6 prompts d'imatge per secció, en anglès, escena concreta. Sense «Paris» ni «winter» en interiors; evita objectes moderns (fanals, teteres, vidres).
@@ -46,15 +47,15 @@ Cada vídeo es puja amb el títol i la descripció també en castellà i anglès
 - Afegeix a `episode.json` el bloc `localizations` (el títol i la descripció pesen per a la cerca; la traducció automàtica del workflow és només la reserva):
 ```json
 "localizations": {
-  "es": {"title": "Una noche en una posada en 1396: no sobrevivirías | Historia para dormir 🍷",
+  "es": {"title": "Sobrevivir en una posada medieval | Historia para dormir 🍷",
          "description_intro": "Ponte cómodo. Esta noche llegamos…",
          "section_titles": ["Introducción: el camino al anochecer", "… 10 en total"]},
-  "en": {"title": "A Night at a Medieval Inn in 1396: You Wouldn't Survive | History for Sleep 🍷",
+  "en": {"title": "Surviving a Medieval Inn | History for Sleep 🍷",
          "description_intro": "Get comfortable. Tonight, we arrive…",
          "section_titles": ["Introduction: the road at dusk", "… 10 en total"]}
 }
 ```
-- Títols: mateixes regles que en francès (ganxo al davant, ≤ 100 caràcters, 1 emoji), acabats en « | Historia para dormir » i « | History for Sleep ». Escriu-los com un natiu, no calcats («tú» en castellà, «you» en anglès).
+- Títols: mateixes regles que en francès (curts, 3–6 paraules, 1 emoji), acabats en « | Historia para dormir » i « | History for Sleep ». Escriu-los com un natiu, no calcats («tú» en castellà, «you» en anglès).
 - `description_intro`: comença « Ponte cómodo. Esta noche… » / « Get comfortable. Tonight, we… ». El codi hi afegeix capítols, tancament i hashtags.
 - `section_titles`: exactament 10, en el mateix ordre.
 - Els subtítols es tradueixen sols al workflow (Helsinki-NLP opus-mt, fr→en i fr→en→es) a partir dels temps reals de cada frase. Queden també als artefactes «control» (`subs_*.srt`, `localizations.json`).
