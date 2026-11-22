@@ -17,14 +17,14 @@ Regla: no repetir cap tema publicat, programat ni privat. Abans de triar, llista
 - Une journée dans une ville du Moyen Âge : vous n'y survivriez pas (Rouen, 1365; higiene, aigua, soroll) — programat 22/11
 - Comment mangeait-on vraiment au Moyen Âge ? Du marché à la table (Paris, 1393, Ménagier de Paris) — programat 23/11
 - La vie d'un enfant au Moyen Âge → « Être enfant au Moyen Âge » (Beauce, 1330; naixement, joguines, feina, escola, Sant Nicolau) — programat 24/11
+- Pourquoi vous ne survivriez pas une journée en Égypte ancienne → « Survivre dans l'Égypte des pharaons » (Deir el-Médineh, ~1250 aC, Ramsès II; Nil, pa i cervesa, Vall dels Reis, absències, déus de la casa) — programat 25/11
 
 ## Pendents (en ordre)
-1. Pourquoi vous ne survivriez pas une journée en Égypte ancienne
-2. Comment vivait-on dans un village gaulois ?
-3. La vie à bord d'un navire au temps des Vikings
-4. Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge (feines de cada estació)
-5. Un jour dans la vie d'un chevalier (lluny dels mites)
-6. Comment s'éclairait-on la nuit avant l'électricité ?
-7. La vie d'un apprenti dans une guilde médiévale
-8. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
-9. Les marchés et les foires de Champagne
+1. Comment vivait-on dans un village gaulois ?
+2. La vie à bord d'un navire au temps des Vikings
+3. Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge (feines de cada estació)
+4. Un jour dans la vie d'un chevalier (lluny dels mites)
+5. Comment s'éclairait-on la nuit avant l'électricité ?
+6. La vie d'un apprenti dans une guilde médiévale
+7. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
+8. Les marchés et les foires de Champagne
