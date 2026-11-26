@@ -21,10 +21,10 @@ Regla: no repetir cap tema publicat, programat ni privat. Abans de triar, llista
 - Comment vivait-on dans un village gaulois ? → « Survivre dans un village gaulois » (Éduens prop de Bibracte, ~80 aC; casa, camps, menjar, artesans, oppidum, druides, societat, vetllades) — programat 26/11
 - La vie à bord d'un navire au temps des Vikings → « Survivre sur un navire viking » (knarr de Noruega a Islàndia, ~980; construcció, tripulació, vela, navegació sense brúixola, menjar, sacs de pell, tempesta i hafvilla, arribada i hivern) — programat 27/11
 - Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge → « Une année à la ferme médiévale » (Picardie prop d'Amiens, ~1310; casa i tres soles, hivern i fléau, llaurar i sembrar els mars, fenc i tonsura, sega amb falç, delme i champart, senyor i banalitats, glandée, matança del porc i Nadal) — programat 28/11
+- Un jour dans la vie d'un chevalier (lluny dels mites) → « Être chevalier au Moyen Âge » (Beauvaisis, ~1280, Philippe le Hardi; escuder i adobament, maison forte, cavalls, cota de malla i heaume, justícia i rendes, quintana i torneig, falconeria i dinar, homenatge, ost i croada de Tunis) — programat 29/11
 
 ## Pendents (en ordre)
-1. Un jour dans la vie d'un chevalier (lluny dels mites)
-2. Comment s'éclairait-on la nuit avant l'électricité ?
-3. La vie d'un apprenti dans une guilde médiévale
-4. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
-5. Les marchés et les foires de Champagne
+1. Comment s'éclairait-on la nuit avant l'électricité ?
+2. La vie d'un apprenti dans une guilde médiévale
+3. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
+4. Les marchés et les foires de Champagne
