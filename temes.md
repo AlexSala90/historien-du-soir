@@ -23,8 +23,8 @@ Regla: no repetir cap tema publicat, programat ni privat. Abans de triar, llista
 - Pourquoi vous ne survivriez pas une année dans une ferme au Moyen Âge → « Une année à la ferme médiévale » (Picardie prop d'Amiens, ~1310; casa i tres soles, hivern i fléau, llaurar i sembrar els mars, fenc i tonsura, sega amb falç, delme i champart, senyor i banalitats, glandée, matança del porc i Nadal) — programat 28/11
 - Un jour dans la vie d'un chevalier (lluny dels mites) → « Être chevalier au Moyen Âge » (Beauvaisis, ~1280, Philippe le Hardi; escuder i adobament, maison forte, cavalls, cota de malla i heaume, justícia i rendes, quintana i torneig, falconeria i dinar, homenatge, ost i croada de Tunis) — programat 29/11
 - Comment s'éclairait-on la nuit avant l'électricité ? → « S'éclairer au Moyen Âge » (Troyes, 1398, Charles VI; chandelière de suif, lluna i campanes, foc de la llar i foguer, cera i Chandeleur, llums d'oli, joncs, torxes i llanternes de banya, couvre-feu i guet, vetllades, llàntia del santuari i matines, primer i segon son) — programat 30/11
+- La vie d'un apprenti dans une guilde médiévale → « Apprenti au Moyen Âge » (París prop de les Halles, 1268, Sant Lluís i Livre des métiers d'Étienne Boileau; marché davant testimonis, casa del mestre, primers mesos, sabata «retournée» i cerres de senglar, treball de dia i jurats, confraria de sant Crespí, festes i Lendit, fugues, valet i mestratge) — programat 01/12
 
 ## Pendents (en ordre)
-1. La vie d'un apprenti dans une guilde médiévale
-2. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
-3. Les marchés et les foires de Champagne
+1. Pourquoi vous ne survivriez pas à la Révolution française au quotidien
+2. Les marchés et les foires de Champagne
